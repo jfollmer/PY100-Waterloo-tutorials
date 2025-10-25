@@ -46,8 +46,17 @@ for n in inputs:
             X = (X*10)+1 # X =1, 11, 111, 1111, 11111
         print(X)         # X = 11111
 
+# the solution I used a different time (and using stuff I know now):
+for n in inputs:
+    for _ in range(n):
+        print_value = 0
+        for _ in range(n): # inner loop, no print statement, just modifies print_value
+            print_value = print_value * 10 + 1 # 10 + 1, 110 + 1, etc.
+        n -= 1 # avoids awkward range in previous solution
+        print(print_value) # outer loop; n lines print
+
 # an entirely easier solution that doesn't use math but produces the 
-# same result:
+# same result (uses info not provided in Waterloo exercise):
 for n in inputs:
     for i in range(n, 0, -1):
         print(int('1' * i))

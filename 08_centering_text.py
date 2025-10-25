@@ -114,3 +114,19 @@ for lines in inputs:
 # Now that I know about the str.center(width) method, it still doesn't
 # work here because it adds the extra spacing character on the right
 # side, not the left side.
+
+for lines in inputs:
+    width = int(lines[0])
+    for line in lines[1:len(lines)]:
+    # a different solution later on:
+        if line == 'END':
+            break
+   
+        padding = (width - len(line)) // 2
+
+        if len(line) % 2 == width % 2:
+            print('.' * padding + line + '.' * padding)
+        else:
+            print('.' * (padding + 1) + line + '.' * padding)
+
+    print() # extra line to divide outputs

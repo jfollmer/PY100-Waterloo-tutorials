@@ -38,3 +38,13 @@ for needle, haystack in inputs.items():
 # Now that I know about the str.count(substr) method, it still doesn't
 # work here because it only counts non-overlapping occurrences of the
 # substring, not all occurrences including overlapping ones.
+
+print()
+
+for needle, haystack in inputs.items():
+    # another solution a different time:
+    count = 0
+    for i in range(len(haystack)):
+        if haystack[i:i + len(needle)] == needle:
+            count += 1
+    print(count)

@@ -47,6 +47,29 @@ print(line1)                    # print final lines since not looping again wher
 print(line2)
 
 
+print()
+# A little bit simpler solution using more info I know now:
+
+def print_ascii_row(start_value):
+    # print line 1 of row:
+    print('chr:', end='')
+    for i in range(start_value, start_value + 16):
+        print(f'  {chr(i)} ', end='')
+    print()
+   
+    # print line 2 of row:
+    print('asc:', end='')
+    for i in range(start_value, start_value + 16):
+        if len(str(i)) == 2:
+            print(f' {i} ', end='')
+        elif len(str(i)) == 3:
+            print(f' {i}', end='')
+    print()
+
+for ascii_value in range(32, 128, 16):
+   print_ascii_row(ascii_value)
+
+
 """Below is my first try at a solution, which worked, but it's unwieldy.
 What I said at the time:
     I bet I can make this even more concise.

@@ -25,3 +25,12 @@ for n in inputs:
         if i**2 < n:
             print(i**2)
     print() # extra line to divide outputs
+
+for n in inputs:
+    n = int(n)
+    # different solution later on:
+    for i in range(1, n):
+        if i**2 >=n:
+            break
+        print(i**2)
+    print() # extra line to divide outputs

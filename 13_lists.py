@@ -42,12 +42,36 @@ input, and returns a list [1, 2, ...] consisting of the first n natural
 numbers.
 """
 
-inputs = [12, 20, 1]
+inputs = [12, 7, 1]
 
 def naturalNumbers(n):
     numbers = []
     for i in range(1, n + 1):
         numbers += [i]
+    return numbers
+
+for n in inputs:
+    print(naturalNumbers(n))
+print()
+
+# A different solution later on:
+
+def naturalNumbers(n):
+    numbers = []
+    for i in range(n):
+        numbers += [i + 1]
+    return numbers
+
+for n in inputs:
+    print(naturalNumbers(n))
+print()
+
+# Another different solution later on:
+
+def naturalNumbers(n):
+    numbers = [0] * n
+    for i in range(n):
+        numbers[i] = i + 1
     return numbers
 
 for n in inputs:

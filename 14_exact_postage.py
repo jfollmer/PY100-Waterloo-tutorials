@@ -37,3 +37,15 @@ for S in inputs:
 # knowing about the str.replace(' ', '') trick, or ''.join(list). I
 # must have looked at the documentation since this lesson links to it,
 # or just googled the answer, or skipped it.
+
+# Different solution later on:
+
+def postalValidate(S):
+    S = S.replace(' ', '')
+    if len(S) == 6 and S[0::2].isalpha() and S[1::2].isdigit():
+        return S.upper()
+    else:
+        return False
+
+for S in inputs:
+    print(postalValidate(S))

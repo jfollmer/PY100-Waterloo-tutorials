@@ -57,6 +57,33 @@ for number, correct_result in inputs:
     print(check(number), correct_result)
 
 
+# Different solution later on:
+
+def check(S):
+    if len(S) != 19:
+        return False
+   
+    checksum = 0
+
+    for i in range(len(S)):
+        if i in {4, 9, 14}:
+            if not S[i].isspace():
+                return False
+        else:
+            if not S[i].isdigit():
+                return False
+            else:
+                checksum += int(S[i])
+   
+    if checksum % 10 != 0:
+        return False
+   
+    return True
+
+for number, correct_result in inputs:
+    print(check(number), correct_result)
+
+
 # original solution:
 
 # def check(S):

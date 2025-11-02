@@ -60,7 +60,7 @@ inputs = [
 ]
 
 def get_lines(lines):
-    # replaced this loop...:
+    # # replaced this loop...:
     # lines = []
     # while True:
     #     line = input()
@@ -99,3 +99,49 @@ def most_frequent_word(poem):
 # print(most_frequent_word()) # replaced with the following loop:
 for poem in inputs:
     print(most_frequent_word(poem))
+
+
+# Different solution later on:
+
+def get_lines(poem): # Added `poem` argument
+    lines = []
+
+    # # Replaced the beginning of this loop...:
+    # while True:
+    #     line = input()
+
+    for line in poem: # ...with this line.
+        if not line == "###":    # this block belonged to `while` loop
+            lines.append(line)
+        else:
+            break
+    
+
+    return lines
+
+def split_words(lines):
+    words = []
+
+    for line in lines:
+        line = line.split()
+        for word in line:
+            words.append(word.lower())
+
+    return words
+
+def most_common_word(words):
+    wordcounts = []
+   
+    for word in words:
+        wordcounts.append(words.count(word))
+   
+    max_count_index = wordcounts.index(max(wordcounts))
+   
+    return words[max_count_index]
+
+
+for poem in inputs: # Added this line (this loop body was main body)
+    lines = get_lines(poem) # Added `poem` argument
+    words = split_words(lines)
+
+    print(most_common_word(words))
